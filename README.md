@@ -1,50 +1,75 @@
-# Welcome to your Expo app 👋
+### App to get location of people in a group
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
 
-1. Install dependencies
+### How to run the project
 
-   ```bash
-   npm install
-   ```
+#### Update expo
+npm install expo@latest
 
-2. Start the app
+#### upgrade dependecies
+npx expo install --fix
 
-   ```bash
-    npx expo start
-   ```
+#### Install dependencies
+npm install
 
-In the output, you'll find options to open the app in a
+#### Start the project in development mode
+npx expo start -c 
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+#### Run on Android emulator
+npx expo run:android
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+#### Run on iOS simulator (Mac only)
+npx expo run:ios
 
-## Get a fresh project
+#### Build APK for Android
+npx expo build:android
 
-When you're ready, run:
+#### Build for iOS (requires Apple credentials)
+npx expo build:ios
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+### SHA for MAP in expo
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+1. eas credentials -p android
 
-## Join the community
 
-Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+### Tasks
+
+[x] Create backend to fanout user location
+[x] Create UI for the app in react native
+
+
+
+
+
+# System Architecture
+
+## Frontend
+
+- **React Native app**: A mobile application developed using React Native.
+- **Google Maps integration**: Displaying maps, markers, and routes within the app.
+- **Real-time location updates**: Receiving and displaying live location updates of users or objects.
+- **Custom markers with photos**: Using custom markers with images to represent users or points of interest on the map.
+- **Direction routing**: Providing real-time navigation and route planning.
+
+## Backend
+
+- **WebSocket server for real-time updates**: A WebSocket server to push live updates (like location and status changes) to the app in real-time.
+- **User authentication**: Secure user sign-in, registration, and session management.
+- **Group management**: Managing user groups and their interactions, such as adding/removing users and group chat.
+- **Location data storage**: Storing users' real-time location and history for future reference.
+- **Photo storage**: Storing user-uploaded images for markers, profile pictures, etc.
+
+## Database
+
+- **Users**: User data including authentication credentials, profile information, and history.
+- **Groups**: Group data including members, settings, and group history.
+- **Location history**: Storing historical location data for tracking movements over time.
+- **Routes**: Storing route information (directions, waypoints, etc.) for each user or group.
+
